@@ -4,62 +4,57 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController), typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
-
-
-
-    public abstract class Command
-    {
-        public abstract void Execute();
-    }
-
-    public class JumpFunction : Command
-    {
-        public override void Execute()
-        {
-            Jump();
-        }
-    }
-
-    public static void Jump()
-    {
-
-    }
-
-    public static void DoMove()
-    {
-        Command keySpace = new JumpFunction();
-        
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            keySpace.Execute();
-        }
-
-    }
-
-
+   
     public CharacterController characterController;
     public float speed = 3;
 
-
     public Animator animator;
 
-    // camera and rotation
-    public Transform cameraHolder;
     public float mouseSensitivity = 2f;
     public float upLimit = -50;
     public float downLimit = 50;
-
-    // gravity
-    private float gravity = 9.87f;
     private float verticalSpeed = 0;
+    private float gravity = 9.87f;
+    private Vector3 movementDirection = Vector3.zero;
+
+    //jumping
+    private Vector3 playerVelocity;
+    private bool groundedPlayer;
+    private float playerSpeed = 2.0f;
+    private float jumpHeight = 3.0f;
+    private float gravityValue = -9.81f;
+        
+    void Start()
+    {
+        characterController = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
+
+    }
 
     void Update()
     {
-        Move();
+        groundedPlayer = characterController.isGrounded;
+        if (groundedPlayer && playerVelocity.y < 0)
+        {
+            playerVelocity.y = 0f;
+        }
+        MoveV();
         Rotate();
+
+        if (Input.GetButtonDown("Jump") && groundedPlayer)
+        {
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            animator.SetBool("isJumping", !characterController.isGrounded);
+        }
+
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        characterController.Move(playerVelocity * Time.deltaTime);
+
+       
+
     }
 
     private void Awake()
@@ -74,30 +69,36 @@ public class PlayerController : MonoBehaviour
         float verticalRotation = Input.GetAxis("Mouse Y");
 
         transform.Rotate(0, horizontalRotation * mouseSensitivity, 0);
-       // cameraHolder.Rotate(-verticalRotation * mouseSensitivity, 0, 0);
-
-       // Vector3 currentRotation = cameraHolder.localEulerAngles;
-       // if (currentRotation.x > 180) currentRotation.x -= 360;
-        //currentRotation.x = Mathf.Clamp(currentRotation.x, upLimit, downLimit);
-       // cameraHolder.localRotation = Quaternion.Euler(currentRotation);
     }
 
     private void Move()
     {
-        float horizontalMove = Input.GetAxis("Horizontal");
-        float verticalMove = Input.GetAxis("Vertical");
+        float horizontalMove = Input.GetAxis("Vertical");
+        float verticalMove = Input.GetAxis("Horizontal");
 
         if (characterController.isGrounded) verticalSpeed = 0;
         else verticalSpeed -= gravity * Time.deltaTime;
         Vector3 gravityMove = new Vector3(0, verticalSpeed, 0);
 
-        Vector3 move = transform.forward * verticalMove + transform.right * horizontalMove;
+        Vector3 move = transform.forward * verticalMove + (-1)*transform.right * horizontalMove;
         characterController.Move(speed * Time.deltaTime * move + gravityMove * Time.deltaTime);
 
         animator.SetBool("isWalking", verticalMove != 0 || horizontalMove != 0);
-
-
-
-
     }
+
+    private void MoveV()
+    {
+        float verticalMove = Input.GetAxis("Vertical");
+        
+
+        if (characterController.isGrounded) verticalSpeed = 0;
+        else verticalSpeed -= gravity * Time.deltaTime;
+        Vector3 gravityMove = new Vector3(0, verticalSpeed, 0);
+
+        Vector3 move = (-1) * transform.right * verticalMove;
+        characterController.Move(speed * Time.deltaTime * move + gravityMove * Time.deltaTime);
+
+        animator.SetBool("isWalking", verticalMove != 0);
+    }
+
 }
