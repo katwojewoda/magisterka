@@ -11,9 +11,12 @@ public class ToNextScene : MonoBehaviour
         nextSceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        SceneManager.LoadScene(nextSceneToLoad);
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            SceneManager.LoadScene(nextSceneToLoad);
+        }
     }
     
 }

@@ -11,9 +11,12 @@ public class ToPrevScene : MonoBehaviour
         prevSceneToLoad = SceneManager.GetActiveScene().buildIndex - 1;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        SceneManager.LoadScene(prevSceneToLoad);
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            SceneManager.LoadScene(prevSceneToLoad);
+        }
     }
 
 }
