@@ -12,6 +12,7 @@ public class ShowText : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
+        if (!other.CompareTag("Player")) return;
         UiObject.SetActive(true);
         
     }
@@ -23,6 +24,7 @@ public class ShowText : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        if (!other.CompareTag("Player")) return;
         UiObject.SetActive(false);
         
     }
