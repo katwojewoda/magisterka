@@ -13,9 +13,13 @@ public class ToPrevScene : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (!other.CompareTag("Player")) return;
+        else
         {
-            SceneManager.LoadScene(prevSceneToLoad);
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                SceneManager.LoadScene(prevSceneToLoad);
+            }
         }
     }
 

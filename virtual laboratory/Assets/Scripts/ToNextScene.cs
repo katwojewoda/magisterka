@@ -13,9 +13,13 @@ public class ToNextScene : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (!other.CompareTag("Player")) return;
+        else
         {
-            SceneManager.LoadScene(nextSceneToLoad);
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                SceneManager.LoadScene(nextSceneToLoad);
+            }
         }
     }
     
