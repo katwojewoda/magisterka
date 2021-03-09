@@ -63,18 +63,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CarController.cs" />
-    <Compile Include="Assets\Scripts\Force.cs" />
-    <Compile Include="Assets\Scripts\InclineDown.cs" />
-    <Compile Include="Assets\Scripts\InclineUp.cs" />
+    <Compile Include="Assets\Scripts\ChangeRubber.cs" />
+    <Compile Include="Assets\Scripts\HangWeights.cs" />
     <Compile Include="Assets\Scripts\PickUp.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\PutObjectOnIncline.cs" />
     <Compile Include="Assets\Scripts\Results.cs" />
+    <Compile Include="Assets\Scripts\Room1\CarController.cs" />
+    <Compile Include="Assets\Scripts\Room1\Force.cs" />
+    <Compile Include="Assets\Scripts\Room1\InclineDown.cs" />
+    <Compile Include="Assets\Scripts\Room1\InclineUp.cs" />
+    <Compile Include="Assets\Scripts\Room1\PutObjectOnIncline.cs" />
+    <Compile Include="Assets\Scripts\Room1\Timer.cs" />
+    <Compile Include="Assets\Scripts\SetMass.cs" />
     <Compile Include="Assets\Scripts\ShowInformations.cs" />
     <Compile Include="Assets\Scripts\ShowText.cs" />
     <Compile Include="Assets\Scripts\TestScript.cs" />
-    <Compile Include="Assets\Scripts\Timer.cs" />
     <Compile Include="Assets\Scripts\ToNextScene.cs" />
     <Compile Include="Assets\Scripts\ToPrevScene.cs" />
     <Compile Include="Assets\Scripts\WeighItem.cs" />

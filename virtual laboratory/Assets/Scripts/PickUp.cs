@@ -13,10 +13,12 @@ public class PickUp : MonoBehaviour
     public float range = 4;
     public GameObject UiObject;
     public GameObject UiObject_PickUp;
+    public GameObject Light;
 
     // Start is called before the first frame update
     void Start()
     {
+
         item.GetComponent<Rigidbody>().useGravity = true;
         UiObject.SetActive(false);
         UiObject_PickUp.SetActive(false);
@@ -26,21 +28,23 @@ public class PickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-            if (carrying == false && (guide.transform.position - transform.position).sqrMagnitude < range * range)
+        Light.SetActive(false);
+        if (carrying == false && (guide.transform.position - transform.position).sqrMagnitude < range * range)
             {
+                Light.SetActive(true);
                 UiObject_PickUp.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                      UiObject_PickUp.SetActive(false);
                      pickup();
-                    carrying = true;
-
+                     carrying = true;
+                     Light.SetActive(false);
                 }
             }
        
        else if (carrying == true)
         {
+            
             UiObject.SetActive(true);
             if (Input.GetKeyDown(KeyCode.G))
             {
@@ -49,7 +53,7 @@ public class PickUp : MonoBehaviour
                 UiObject.SetActive(false);
             }
         }
-
+    
 
     }
     void pickup()

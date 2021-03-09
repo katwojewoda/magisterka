@@ -11,7 +11,6 @@ public class WeighItem : MonoBehaviour
     public Transform scaleGuide;
     public GameObject playerParent;
     public Transform playerGuide;
-    public GameObject UiObject_text;
     public Text scaleText;
     private float mass;    
     bool weighting;
@@ -62,7 +61,7 @@ public class WeighItem : MonoBehaviour
                     placeOnScale();
                     weighting = true;
                     mass = item.GetComponent<Rigidbody>().mass;
-                    scaleText.text = mass.ToString("F2");
+                    scaleText.text = mass.ToString("F1");
                 }
             }
             else if (weighting == true)
