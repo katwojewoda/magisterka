@@ -18,16 +18,13 @@ public class HangWeights : MonoBehaviour
     private float Q = 0f;
     private float x0;
     private float itemHeight;
+    
     public Text dynamoText;
 
-    public Text QText_1;
-    public Text x0Text_1;
-
-    public Text QText_2;
-    public Text x0Text_2;
-
-    public Text QText_3;
-    public Text x0Text_3;
+    public List<Text> Qtext1;
+    public List<Text> Qtext2;
+    public List<Text> x0text1;
+    public List<Text> x0text2;
 
     // Start is called before the first frame update
     void Start()
@@ -83,18 +80,12 @@ public class HangWeights : MonoBehaviour
                        GameObject child = dynamoParent.transform.GetChild(i).gameObject;
                        mass = mass + child.GetComponent<Rigidbody>().mass;
                      }
-                    Q = mass * 9.81f;  
-                    dynamoText.text = Q.ToString("F1");
-                    if (Rubber1.activeSelf == true)
-                    {
-                        x0= Q / 0.3f;
-                    }
-                    if (Rubber2.activeSelf == true)
-                    {
-                        x0= Q / 0.7f;
-                    }
-                    mass = 0f; 
 
+                    Q = mass * 9.81f;  
+                    dynamoText.text = Q.ToString("F2");
+                    
+                    mass = 0f; 
+                    
                 }
             }
             
@@ -103,8 +94,36 @@ public class HangWeights : MonoBehaviour
             {
                 HangingPoint.transform.position = startHangingPoint;
                 mass = 0f;
-                dynamoText.text = "0.00";
+                dynamoText.text = "00.00";
             }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                if (Rubber1.activeSelf == true)
+                {
+                    if (Qtext1[i].text == "0,00")
+                    {
+                        Qtext1[i].text = Q.ToString("F2");
+                        x0 = Q / 10000f;
+                        x0text1[i].text = x0.ToString("F2");
+                        break;
+                    }
+                }
+
+                if (Rubber2.activeSelf == true)
+                {
+                    if (Qtext2[i].text == "0,00")
+                    {
+                        Qtext2[i].text = Q.ToString("F2");
+                        x0 = Q / 15000f;
+                        x0text2[i].text = x0.ToString("F2");
+                        break;
+                    }
+                }
+
+            }
+        }  
     }
 
    

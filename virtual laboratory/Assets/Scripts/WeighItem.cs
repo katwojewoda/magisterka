@@ -12,10 +12,14 @@ public class WeighItem : MonoBehaviour
     public GameObject playerParent;
     public Transform playerGuide;
     public Text scaleText;
+    public Text res_weight_1;
+    public Text res_weight_2;
+    public Text res_weight_3;
+    private Text res;
     private float mass;    
     bool weighting;
-
-
+    public GameObject UiObject_res;
+    bool hide = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,14 +29,17 @@ public class WeighItem : MonoBehaviour
         if (playerParent.transform.Find("weight1")) 
         { 
           item = playerParent.transform.Find("weight1").gameObject;
+            res = res_weight_1;
         }
         if (playerParent.transform.Find("weight2"))
         {
             item = playerParent.transform.Find("weight2").gameObject;
+            res = res_weight_2;
         }
         if (playerParent.transform.Find("weight3"))
         {
             item = playerParent.transform.Find("weight3").gameObject;
+            res = res_weight_3;
         }
         
     }
@@ -61,8 +68,11 @@ public class WeighItem : MonoBehaviour
                     placeOnScale();
                     weighting = true;
                     mass = item.GetComponent<Rigidbody>().mass;
-                    scaleText.text = mass.ToString("F1");
+                    scaleText.text = mass.ToString("F2");
+                    res.text = scaleText.text;
+
                 }
+                
             }
             else if (weighting == true)
             {
@@ -73,8 +83,24 @@ public class WeighItem : MonoBehaviour
                     scaleText.text = "00.00";
                     item = null;
                 }
+                if (Input.GetKeyDown(KeyCode.G))
+                {
+                    weighting = false;
+                    scaleText.text = "00.00";
+                    item = null;
+                }
             }
         } 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            hide = !hide;
+            if (hide)
+            {
+                UiObject_res.SetActive(false);
+            }
+            else UiObject_res.SetActive(true);
+        }
+
     }
     void placeOnScale()
     {

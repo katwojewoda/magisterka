@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChangeRubber : MonoBehaviour
 {
     public GameObject Rubber1;
     public GameObject Rubber2;
-    
+    public Text dynamoText;
+
     private bool isInTrigger = false;
    
     private void OnTriggerStay(Collider other)
@@ -30,20 +32,23 @@ public class ChangeRubber : MonoBehaviour
     {
         if (isInTrigger)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (dynamoText.text == "00.00")
             {
-                if (Rubber1.activeSelf == true)
+                if (Input.GetKeyDown(KeyCode.F))
                 {
-                    Rubber1.SetActive(false);
-                    Rubber2.SetActive(true);
-                    
-                }
+                    if (Rubber1.activeSelf == true)
+                    {
+                        Rubber1.SetActive(false);
+                        Rubber2.SetActive(true);
 
-                else
-                {
-                    Rubber2.SetActive(false);
-                    Rubber1.SetActive(true);
+                    }
 
+                    else
+                    {
+                        Rubber2.SetActive(false);
+                        Rubber1.SetActive(true);
+
+                    }
                 }
             }
         }

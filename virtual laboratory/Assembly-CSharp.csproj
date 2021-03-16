@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\SetMass.cs" />
     <Compile Include="Assets\Scripts\ShowInformations.cs" />
     <Compile Include="Assets\Scripts\ShowText.cs" />
+    <Compile Include="Assets\Scripts\ShowText_hang.cs" />
     <Compile Include="Assets\Scripts\TestScript.cs" />
     <Compile Include="Assets\Scripts\ToNextScene.cs" />
     <Compile Include="Assets\Scripts\ToPrevScene.cs" />
