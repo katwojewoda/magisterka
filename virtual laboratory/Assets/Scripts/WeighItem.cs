@@ -19,6 +19,8 @@ public class WeighItem : MonoBehaviour
     private float mass;    
     bool weighting;
     public GameObject UiObject_res;
+    public GameObject UiObject_table;
+    public GameObject UiObject_htable;
     bool hide = false;
 
     private void OnTriggerEnter(Collider other)
@@ -97,8 +99,15 @@ public class WeighItem : MonoBehaviour
             if (hide)
             {
                 UiObject_res.SetActive(false);
+                UiObject_table.SetActive(true);
+                UiObject_htable.SetActive(false);
             }
-            else UiObject_res.SetActive(true);
+            else
+            {
+                UiObject_res.SetActive(true);
+                UiObject_table.SetActive(false);
+                UiObject_htable.SetActive(true);
+            }
         }
 
     }

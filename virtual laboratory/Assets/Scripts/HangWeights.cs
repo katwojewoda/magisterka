@@ -42,12 +42,12 @@ public class HangWeights : MonoBehaviour
             item = playerParent.transform.Find("weight1").gameObject;
             itemHeight = 2f;
         }
-        if (playerParent.transform.Find("weight2"))
+        else if (playerParent.transform.Find("weight2"))
         {
             item = playerParent.transform.Find("weight2").gameObject;
             itemHeight = 2.5f;
         }
-        if (playerParent.transform.Find("weight3"))
+        else if (playerParent.transform.Find("weight3"))
         {
             item = playerParent.transform.Find("weight3").gameObject;
             itemHeight = 3.0f;
