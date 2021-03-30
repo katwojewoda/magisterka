@@ -8,9 +8,68 @@ public class InfoUI : MonoBehaviour
     public GameObject InfoMenuUI;
     public static bool GamePause = false;
     private bool isInTrigger = false;
-    // Start is called before the first frame update
+   
+    
+    int currentUiID = 0;
+    public List<GameObject> UiObject;
+    
 
-    private void OnTriggerStay(Collider other)
+   public void Next()
+    {
+    switch(currentUiID)
+    {
+        case 0:
+                currentUiID = 1;
+                EnableUi(1, 0);
+            break;
+        case 1:
+                currentUiID = 2;
+                EnableUi(2, 1);
+            break;
+        case 2:
+                currentUiID = 3;
+                EnableUi(3, 2);
+            break;
+        
+        case 3:
+                currentUiID = 0;
+                EnableUi(1, 3);
+            break;
+    }
+}
+
+public void Previous()
+{
+        Debug.Log("hhhhhhhhhhhhhhhhhhhhhhh");
+        switch (currentUiID)
+    {
+        case 0:
+                currentUiID = 3;
+                EnableUi(3, 0);
+        break;
+        case 1:
+                currentUiID = 0;
+                EnableUi(0, 1);
+        break;
+        case 2:
+                currentUiID = 1;
+                EnableUi(1, 2);
+        break;
+        case 3:
+                currentUiID = 2;
+                EnableUi(2, 3);
+        break;
+        
+    }
+}
+
+private void EnableUi(int newID, int previousID)
+{
+    UiObject[previousID].SetActive(false);
+    UiObject[newID].SetActive(true);
+
+}
+private void OnTriggerStay(Collider other)
     {
 
 
@@ -63,6 +122,5 @@ public class InfoUI : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-    }
-
+    }    
 }
