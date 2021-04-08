@@ -40,7 +40,6 @@ public class InfoUI : MonoBehaviour
 
 public void Previous()
 {
-        Debug.Log("hhhhhhhhhhhhhhhhhhhhhhh");
         switch (currentUiID)
     {
         case 0:

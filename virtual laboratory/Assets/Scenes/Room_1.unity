@@ -1919,6 +1919,9 @@ MonoBehaviour:
   UiObject_text: {fileID: 379252258}
   UiObject_camera: {fileID: 738984783}
   UiObject_key: {fileID: 2090315662}
+  incline_s: {fileID: 1212761112}
+  incline_m: {fileID: 476502197}
+  incline_h: {fileID: 282766722}
   timerText: {fileID: 430758508}
   time_1: {fileID: 205062481}
   vk_1: {fileID: 1202811954}
@@ -3140,6 +3143,9 @@ MonoBehaviour:
   UiObject_text: {fileID: 379252258}
   UiObject_camera: {fileID: 738984783}
   UiObject_key: {fileID: 2090315662}
+  incline_s: {fileID: 1212761112}
+  incline_m: {fileID: 476502197}
+  incline_h: {fileID: 282766722}
   timerText: {fileID: 430758508}
   time_1: {fileID: 2011814055}
   vk_1: {fileID: 711405657}
@@ -3618,8 +3624,8 @@ Rigidbody:
   m_GameObject: {fileID: 8296172669054820253}
   serializedVersion: 2
   m_Mass: 100
-  m_Drag: 0.2
-  m_AngularDrag: 0.8
+  m_Drag: 0.5
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -5059,7 +5065,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 217f61890ef8cf3459f824b78628c9d6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.25
+      value: 7.13
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 217f61890ef8cf3459f824b78628c9d6,
         type: 3}
@@ -5977,7 +5983,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 82dc2e0aed706304ca5a419c68a6f351,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 82dc2e0aed706304ca5a419c68a6f351,
         type: 3}
@@ -5987,7 +5993,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 82dc2e0aed706304ca5a419c68a6f351,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.25
+      value: 7.13
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 82dc2e0aed706304ca5a419c68a6f351,
         type: 3}
@@ -6233,7 +6239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 1056378048}
-  speed: 3
+  speed: 4
   animator: {fileID: 1056378051}
   mouseSensitivity: 1
   upLimit: -50
@@ -6853,6 +6859,9 @@ MonoBehaviour:
   UiObject_text: {fileID: 379252258}
   UiObject_camera: {fileID: 738984783}
   UiObject_key: {fileID: 2090315662}
+  incline_s: {fileID: 1212761112}
+  incline_m: {fileID: 476502197}
+  incline_h: {fileID: 282766722}
   timerText: {fileID: 430758508}
   time_1: {fileID: 707507493}
   vk_1: {fileID: 1393039426}
@@ -7160,8 +7169,8 @@ Rigidbody:
   m_GameObject: {fileID: 1253527489}
   serializedVersion: 2
   m_Mass: 1000000
-  m_Drag: 1
-  m_AngularDrag: 0.05
+  m_Drag: 0.5
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -7583,7 +7592,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InclineH: {fileID: 282766722}
   InclineM: {fileID: 476502197}
-  InclineS: {fileID: 1212761112}
 --- !u!1 &1351879622
 GameObject:
   m_ObjectHideFlags: 0
@@ -8516,7 +8524,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InclineH: {fileID: 282766722}
   InclineM: {fileID: 476502197}
-  InclineS: {fileID: 1212761112}
 --- !u!1 &1734039945
 GameObject:
   m_ObjectHideFlags: 0
@@ -8863,7 +8870,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: e35e202be8624bc459b9304e33401a48,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e35e202be8624bc459b9304e33401a48,
         type: 3}
@@ -8873,7 +8880,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: e35e202be8624bc459b9304e33401a48,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.25
+      value: 7.13
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e35e202be8624bc459b9304e33401a48,
         type: 3}

@@ -64,8 +64,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\ChangeRubber.cs" />
+    <Compile Include="Assets\Scripts\HangPendulum.cs" />
     <Compile Include="Assets\Scripts\HangWeights.cs" />
     <Compile Include="Assets\Scripts\InfoUI.cs" />
+    <Compile Include="Assets\Scripts\LineLong.cs" />
+    <Compile Include="Assets\Scripts\LineShort.cs" />
+    <Compile Include="Assets\Scripts\Pendulum.cs" />
+    <Compile Include="Assets\Scripts\Pendulum2.cs" />
     <Compile Include="Assets\Scripts\PickUp.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Results.cs" />

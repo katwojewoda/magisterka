@@ -68,8 +68,10 @@ public class PickUp : MonoBehaviour
     {
         item.GetComponent<Rigidbody>().useGravity = true;
         item.GetComponent<Rigidbody>().isKinematic = false;
+        item.GetComponent<Rigidbody>().constraints=RigidbodyConstraints.FreezePosition;
         item.transform.parent = null;
         item.transform.position = putBack.transform.position;
         item.transform.rotation = putBack.transform.rotation;
+        
     }
 }
