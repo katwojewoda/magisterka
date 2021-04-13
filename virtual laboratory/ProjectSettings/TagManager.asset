@@ -6,6 +6,9 @@ TagManager:
   tags:
   - cube
   - car
+  - ball
+  - ball_red
+  - car1
   layers:
   - Default
   - TransparentFX

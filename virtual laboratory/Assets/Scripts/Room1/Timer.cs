@@ -16,8 +16,7 @@ public class Timer : MonoBehaviour
     private float startTime;
     private float time0;
     private bool isInTrigger = false;
-    bool timerActive = false;
-
+    
     public Text time_1;
     public Text vk_1;
    
@@ -29,6 +28,8 @@ public class Timer : MonoBehaviour
     private float f = 0.12f;
     private float g = 9.81f;
     private float alpha;
+    private float h;
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,15 +45,18 @@ public class Timer : MonoBehaviour
         if (incline_h.activeSelf == true)
         {
             alpha = 32.7f;
+            h = 5.8f * 1.6f;
         }
         else if (incline_m.activeSelf == true)
         {
             alpha = 26.6f;
+            h = 4.65f * 1.6f;
         }
-        //else if (incline_s.activeSelf == true)
-        //{
-        //    alpha = 16.1f;
-        //}
+        else if (incline_s.activeSelf == true)
+        {
+            alpha = 16.1f;
+            h = 2.91f * 1.6f;
+        }
 
     }
     private void OnTriggerEnter(Collider other)
@@ -64,24 +68,21 @@ public class Timer : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         isInTrigger = false;
-        if (!other.CompareTag("cube"))
+        if (!other.CompareTag("car1"))
         {
-            acc = g * Mathf.Sin(alpha * Mathf.Deg2Rad) - g * f * Mathf.Cos(alpha * Mathf.Deg2Rad);
-            vk = acc / startTime;
+            vk = 17f / startTime;
             time_1.text = startTime.ToString("F2");
-            //acc = 2 * 16.8f / (startTime * startTime);
-           
-            
+                                  
             vk_1.text = vk.ToString("F2");
         }
         if (!other.CompareTag("car"))
         {
-            acc = g * Mathf.Sin(alpha * Mathf.Deg2Rad) - g * f * Mathf.Cos(alpha * Mathf.Deg2Rad);
-            vk = acc / startTime;
+            vk = 17f / startTime;
             time_2.text = startTime.ToString("F2");
-            //acc = 2 * 16.8f / (startTime * startTime); 
+            
             vk_2.text = vk.ToString("F2");
         }
+        
     }
 
     // Update is called once per frame
@@ -89,6 +90,7 @@ public class Timer : MonoBehaviour
     {
         if (isInTrigger == true)
         {
+           
             UiObject_text.SetActive(false);
             UiObject_camera.SetActive(true);
             startTime += Time.deltaTime;
@@ -105,6 +107,7 @@ public class Timer : MonoBehaviour
             } 
             UiObject_text.SetActive(true);
             UiObject_camera.SetActive(false);
+            
         }
 
         if (Input.GetKeyDown(KeyCode.R))

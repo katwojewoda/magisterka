@@ -6,7 +6,7 @@ public class InclineUp : MonoBehaviour
 {
     public GameObject InclineH;
     public GameObject InclineM;
-    //public GameObject InclineS;
+    public GameObject InclineS;
     private bool isInTrigger = false; 
     // Start is called before the first frame update
 
@@ -37,15 +37,15 @@ public class InclineUp : MonoBehaviour
                 {
                     InclineH.SetActive(true);
                     InclineM.SetActive(false);
-                    //InclineS.SetActive(false);
+                    InclineS.SetActive(false);
                 }
 
-               // else
-               // {
-               //     InclineH.SetActive(true);
-               //     InclineM.SetActive(false);
-               //     InclineS.SetActive(false);
-               // }
+                else
+               {
+                   InclineH.SetActive(true);
+                   InclineM.SetActive(false);
+                    InclineS.SetActive(false);
+                }
             }
         }
     }

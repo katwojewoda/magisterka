@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\LineLong.cs" />
     <Compile Include="Assets\Scripts\LineShort.cs" />
     <Compile Include="Assets\Scripts\Pendulum.cs" />
+    <Compile Include="Assets\Scripts\Pendulum_Period.cs" />
     <Compile Include="Assets\Scripts\Pendulum2.cs" />
     <Compile Include="Assets\Scripts\PickUp.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
