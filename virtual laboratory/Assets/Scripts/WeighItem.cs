@@ -61,9 +61,9 @@ public class WeighItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isInTrigger)
+        if (isInTrigger )
         {
-            if (weighting == false)
+            if (weighting == false && scaleParent.transform.childCount < 2)
             {
                 if (Input.GetKeyDown(KeyCode.F))
                 {
@@ -78,21 +78,22 @@ public class WeighItem : MonoBehaviour
             }
             else if (weighting == true)
             {
-                if (Input.GetKeyDown(KeyCode.F))
+                if (Input.GetKeyDown(KeyCode.F) && playerParent.transform.childCount < 4)
                 {
                     pickUp();
                     weighting = false;
                     scaleText.text = "00.00";
                     item = null;
                 }
-                if (Input.GetKeyDown(KeyCode.G))
-                {
-                    weighting = false;
-                    scaleText.text = "00.00";
-                    item = null;
-                }
+                
             }
-        } 
+        }
+        if (weighting == true && Input.GetKeyDown(KeyCode.G))
+        {
+            weighting = false;
+            scaleText.text = "00.00";
+            item = null;
+        }
         if (Input.GetKeyDown(KeyCode.R))
         {
             hide = !hide;

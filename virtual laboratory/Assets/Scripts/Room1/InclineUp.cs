@@ -40,10 +40,10 @@ public class InclineUp : MonoBehaviour
                     InclineS.SetActive(false);
                 }
 
-                else
-               {
-                   InclineH.SetActive(true);
-                   InclineM.SetActive(false);
+                if (InclineS.activeSelf == true)
+                {
+                   InclineH.SetActive(false);
+                   InclineM.SetActive(true);
                     InclineS.SetActive(false);
                 }
             }

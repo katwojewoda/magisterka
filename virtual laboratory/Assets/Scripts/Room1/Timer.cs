@@ -61,7 +61,8 @@ public class Timer : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-       isInTrigger = true;
+        if (!(other.CompareTag("car1") || other.CompareTag("car"))) return;
+            isInTrigger = true;
 
     }
 

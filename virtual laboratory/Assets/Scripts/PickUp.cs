@@ -29,22 +29,24 @@ public class PickUp : MonoBehaviour
     void Update()
     {
         Light.SetActive(false);
-        if (carrying == false && (guide.transform.position - transform.position).sqrMagnitude < range * range)
+        
+            if (carrying == false && (guide.transform.position - transform.position).sqrMagnitude < range * range && tempParent.transform.childCount <4)
+            
             {
                 Light.SetActive(true);
                 UiObject_PickUp.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.F))
                 {
-                     UiObject_PickUp.SetActive(false);
-                     pickup();
-                     carrying = true;
-                     Light.SetActive(false);
+                    UiObject_PickUp.SetActive(false);
+                    pickup();
+                    carrying = true;
+                    Light.SetActive(false);
                 }
             }
        
-       else if (carrying == true)
+        else if (carrying == true)
         {
-            
+
             UiObject.SetActive(true);
             if (Input.GetKeyDown(KeyCode.G))
             {
@@ -58,11 +60,13 @@ public class PickUp : MonoBehaviour
     }
     void pickup()
     {
-        item.GetComponent<Rigidbody>().useGravity = false;
-        item.GetComponent<Rigidbody>().isKinematic = true;
-        item.transform.position = guide.transform.position;
-        item.transform.rotation = guide.transform.rotation;
-        item.transform.parent = tempParent.transform;
+        
+            item.GetComponent<Rigidbody>().useGravity = false;
+            item.GetComponent<Rigidbody>().isKinematic = true;
+            item.transform.position = guide.transform.position;
+            item.transform.rotation = guide.transform.rotation;
+            item.transform.parent = tempParent.transform;
+        
     }
     void drop()
     {
