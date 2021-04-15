@@ -63,9 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\ChangeRubber.cs" />
-    <Compile Include="Assets\Scripts\HangPendulum.cs" />
-    <Compile Include="Assets\Scripts\HangWeights.cs" />
     <Compile Include="Assets\Scripts\InfoUI.cs" />
     <Compile Include="Assets\Scripts\LineLong.cs" />
     <Compile Include="Assets\Scripts\LineShort.cs" />
@@ -75,6 +72,9 @@
     <Compile Include="Assets\Scripts\PickUp.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Results.cs" />
+    <Compile Include="Assets\Scripts\Rom2\ChangeRubber.cs" />
+    <Compile Include="Assets\Scripts\Rom2\HangPendulum.cs" />
+    <Compile Include="Assets\Scripts\Rom2\HangWeights.cs" />
     <Compile Include="Assets\Scripts\Room1\CarController.cs" />
     <Compile Include="Assets\Scripts\Room1\Force.cs" />
     <Compile Include="Assets\Scripts\Room1\InclineDown.cs" />

@@ -104,7 +104,7 @@ public class HangWeights : MonoBehaviour
                 {
                     if (Qtext1[i].text == "0,00")
                     {
-                        Qtext1[i].text = Q.ToString("F2");
+                        Qtext1[i].text = Q.ToString("F0");
                         x0 = Q / 10000f;
                         x0text1[i].text = x0.ToString("F2");
                         break;
@@ -115,7 +115,7 @@ public class HangWeights : MonoBehaviour
                 {
                     if (Qtext2[i].text == "0,00")
                     {
-                        Qtext2[i].text = Q.ToString("F2");
+                        Qtext2[i].text = Q.ToString("F0");
                         x0 = Q / 15000f;
                         x0text2[i].text = x0.ToString("F2");
                         break;

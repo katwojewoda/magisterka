@@ -4,34 +4,97 @@ using UnityEngine;
 
 public class Pendulum2 : MonoBehaviour
 {
-    float timer = 0f;
-    float speed = 2f;
-    int phase = 0;
+   // public static pendul instance;
+    Quaternion start, end;
+    public float angle0;
+    public float v;
+    public float timpStart = 0;
+    private float angle;
+    private bool isInTrigger = false;
+    private bool measure = false;
 
-    void FixedUpdate()
+    public GameObject playerParent;
+    public GameObject lineParent;
+
+    // Use this for initialization
+    void Start()
     {
-        timer += Time.fixedDeltaTime;
-        if (timer > 1f)
-        {
-            phase++;
-            phase %= 4;            //Keep the phase between 0 to 3.
-            timer = 0f;
-        }
+        start = PendulRote(angle0);
+        end = PendulRote(-angle0);
+        angle = angle0;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Player")) return;
 
-        switch (phase)
+        isInTrigger = true;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+
+        if (!other.CompareTag("Player")) return;
+        isInTrigger = false;
+    }
+   
+    private void FixedUpdate()
+    {
+        if (measure == true)
         {
-            case 0:
-                transform.Rotate(0f, 0f, speed * (1 - timer));  //Speed, from maximum to zero.
-                break;
-            case 1:
-                transform.Rotate(0f, 0f, -speed * timer);       //Speed, from zero to maximum.
-                break;
-            case 2:
-                transform.Rotate(0f, 0f, -speed * (1 - timer)); //Speed, from maximum to zero.
-                break;
-            case 3:
-                transform.Rotate(0f, 0f, speed * timer);        //Speed, from zero to maximum.
-                break;
+            GameObject varGameObject = GameObject.Find("weight1");
+            varGameObject.GetComponent<PickUp>().enabled = false;
+
+            GameObject varGameObject2 = GameObject.Find("weight2");
+            varGameObject2.GetComponent<PickUp>().enabled = false;
+
+            timpStart += Time.deltaTime;
+            transform.rotation = Quaternion.Lerp(start, end, (Mathf.Sin(timpStart * v + Mathf.PI / 2) + 1.0f) / 2.0f);
+            if (angle != angle0)
+            {
+                start = PendulRote(angle0);
+                end = PendulRote(-angle0);
+                angle = angle0;
+            }
         }
+        if (measure == false)
+        {
+
+            GameObject varGameObject = GameObject.Find("weight1");
+            varGameObject.GetComponent<PickUp>().enabled = true;
+
+            GameObject varGameObject2 = GameObject.Find("weight2");
+            varGameObject2.GetComponent<PickUp>().enabled = true;
+            transform.rotation = Quaternion.identity;
+        }
+    }
+    void Update()
+    {
+        if (isInTrigger)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                if (lineParent.transform.childCount == 1)
+                {
+                    measure = !measure;
+                }
+            }
+        }
+        
+
+    }
+
+
+    void ResetTimer()
+    {
+        timpStart = 0;
+    }
+
+    Quaternion PendulRote(float angle)
+    {
+        var PendulRote = transform.rotation;
+        var angleZ = PendulRote.eulerAngles.z + angle;
+        if (angleZ > 180) angleZ -= 360;
+        else if (angleZ < -180) angleZ += 360;
+        PendulRote.eulerAngles = new Vector3(PendulRote.eulerAngles.x, PendulRote.eulerAngles.y, angleZ);
+        return PendulRote;
     }
 }
