@@ -103,6 +103,7 @@ private void OnTriggerStay(Collider other)
     }
     public void Resume()
     {
+         
         InfoMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GamePause = false;
@@ -111,6 +112,7 @@ private void OnTriggerStay(Collider other)
     }
     public void Pause()
     {
+        
         InfoMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GamePause = true;

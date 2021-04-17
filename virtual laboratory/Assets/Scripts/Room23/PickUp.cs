@@ -29,8 +29,9 @@ public class PickUp : MonoBehaviour
     void Update()
     {
         Light.SetActive(false);
-        
-            if (carrying == false && (guide.transform.position - transform.position).sqrMagnitude < range * range && tempParent.transform.childCount <4)
+        UiObject_PickUp.SetActive(false);
+
+        if (carrying == false && (guide.transform.position - transform.position).sqrMagnitude < range * range && tempParent.transform.childCount <4)
             
             {
                 Light.SetActive(true);

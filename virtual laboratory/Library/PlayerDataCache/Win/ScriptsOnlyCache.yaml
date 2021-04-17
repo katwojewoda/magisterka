@@ -318,6 +318,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10168}
     - Class: 114
+      Script: {instanceID: 10246}
+    - Class: 114
       Script: {instanceID: 10346}
     - Class: 114
       Script: {instanceID: 10354}
@@ -341,6 +343,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11264}
     - Class: 114
       Script: {instanceID: 11284}
+    - Class: 114
+      Script: {instanceID: 11388}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1033,4 +1037,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Room_1.unity
   - Assets/Scenes/Room_2.unity
   - Assets/Scenes/Room_3.unity
-  playerPath: D:/Pliki/Studia/Magisterka/Virtual_Lab_Build1/virtual laboratory.exe
+  playerPath: D:/Pliki/Studia/Magisterka/virtual_lab_Build2/virtual laboratory.exe
