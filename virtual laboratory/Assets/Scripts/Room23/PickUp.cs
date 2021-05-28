@@ -9,7 +9,7 @@ public class PickUp : MonoBehaviour
     public GameObject putBack;
     public GameObject tempParent; 
     public Transform guide; 
-    bool carrying;
+    bool carrying = false;
     public float range = 4;
     public GameObject UiObject;
     public GameObject UiObject_PickUp;

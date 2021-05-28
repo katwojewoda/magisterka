@@ -4433,7 +4433,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: cb9862581b179ea469a551903d3960ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0b13f2c2629912049974b805f2cccb32, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6510,7 +6510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 1056378048}
-  speed: 4
+  speed: 4.5
   animator: {fileID: 1056378051}
   mouseSensitivity: 1
   upLimit: -50
@@ -11811,7 +11811,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2112357436
 RectTransform:
   m_ObjectHideFlags: 0
